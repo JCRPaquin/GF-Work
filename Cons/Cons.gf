@@ -1,6 +1,6 @@
 abstract Cons = {
-  cat Bool;
-  data Bool = True | False;
+  cat EBool;
+  data EBool = ETrue | EFalse;
 
   cat List Type;
   -- data List (t : Type) = Cons t List | Nil;
@@ -13,5 +13,6 @@ abstract Cons = {
     Tail : (t : Type) -> List t -> List t;
     
     Map : (t1 : Type) -> (t2 : Type) -> (t1 -> t2) -> List t1 -> List t2;
-    Filter : (t : Type) -> (t -> Bool) -> List t -> List t;
+    Filter : (t : Type) -> (t -> EBool) -> List t -> List t;
+    Length : (t : Type) -> List t -> Int;
 }
