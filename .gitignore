@@ -1,5 +1,9 @@
+.DS_Store
+.gradle/*
+
 CLEVR/Trans
-CLEVR_v1.0/*
+CLEVR/CLEVR_v1.0/*
+lines.txt
 *.gfo
 *.pgf
 
