@@ -8,7 +8,7 @@ concrete CLEVREng of CLEVR =
 
 
 	-- CLEVR categories
-	lincat Value, Property;
+	lincat Value, Property = A;
 
 	lincat Object, Group = NP;
 
