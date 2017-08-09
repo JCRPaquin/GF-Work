@@ -59,10 +59,14 @@ concrete CLEVREng of CLEVR =
 	  Shape, Size, Material, Color, Location : Property;
 
 	  Cube, Sphere, Cylinder : Value Shape;
+	  -- Cube also known as 'block'
+	  -- Sphere also known as 'ball'
 	  
 	  Small, Large : Value Size;
 
 	  Metal, Rubber : Value Material;
+	  -- Metal also known as 'shiny'
+	  -- Rubber also known as 'matte'
 
 	  Gray, Blue, Brown, Yellow, Red, Green, Purple, Cyan : Value Color;
 
