@@ -8,27 +8,22 @@ concrete CLEVREng of CLEVR =
 
 
 	-- CLEVR categories
-	lincat Value = VP; Property = A;
+	lincat Value = Str; -- Str type because we can't contain the relevant types in this. VP doesn't work.
+	       Property = N;
 
 	lincat Object, Group = NP;
 
-	lincat Number; -- Bool;
+	lincat Number = S; -- Bool;
 
 	-- CLEVR functions
 	fun
 	  Count : Group -> Number;
-
-	  --Exist : Group -> Bool;
 
 	  And, Or : Group -> Group -> Group;
 
 	  Filter : (p : Property) -> Value p -> Group -> Group;
 
 	  Query : (p : Property) -> Object -> Value p;
-
-	  --EqVal : (p : Property) -> Value p -> Value p -> Bool;
-
-	  --EqNum, LessThan, GreaterThan : Number -> Number -> Bool;
 
 	  Same : Property -> Object -> Group;
 
@@ -55,20 +50,39 @@ concrete CLEVREng of CLEVR =
 
 
 	-- Property and value types
-	fun
-	  Shape, Size, Material, Color, Location : Property;
+	lin
+	  Shape = mkN "shape";
+	  Size = mkN "size";
+	  Material = mkN "material";
+	  Color = mkN "color";
+	  Location = mkN "location";
 
-	  Cube, Sphere, Cylinder : Value Shape;
+	  Cube = variants {"cube"; "block"};
+	  Sphere = variants {"sphere"; "ball"};
+	  Cylinder = "cylinder";
+
 	  -- Cube also known as 'block'
 	  -- Sphere also known as 'ball'
 	  
-	  Small, Large : Value Size;
+	  Small = "small";
+	  Large = "large";
 
-	  Metal, Rubber : Value Material;
+	  Metal = variants {"metal"; "shiny"};
+	  Rubber = variants {"rubber"; "matte"};
 	  -- Metal also known as 'shiny'
 	  -- Rubber also known as 'matte'
 
-	  Gray, Blue, Brown, Yellow, Red, Green, Purple, Cyan : Value Color;
+	  Gray = variants {"gray"; "grey"};
+	  Blue = "blue";
+	  Brown = "brown";
+	  Yellow = "yellow";
+	  Red = "red";
+	  Green = "green";
+	  Purple = "purple";
+	  Cyan = "cyan";
 
-	  Front, Behind, Left, Right : Value Location;
+	  Front = "front";
+	  Behind = "behind";
+	  Left = "left";
+	  Right = "right";
 }
